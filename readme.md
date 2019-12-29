@@ -1,4 +1,4 @@
-These repo tracks all my leetcode solutions and my ideas.
+This repo tracks all my leetcode solutions and my ideas.
 
 I'll try to solve one problem using different approaches for some classical problems.
 
