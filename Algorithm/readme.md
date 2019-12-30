@@ -12,7 +12,7 @@ I attach all my solutions here. In addition, I write some notes/tricks/tips of p
 
 - [Python Notes.md](https://github.com/XiangkeChen/My_Leetcode/blob/master/Algorithm/00_PythonNote.md)
 
-  ## Leetcode
+## Leetcode
 
 - [LC1108.md](https://github.com/XiangkeChen/My_Leetcode/blob/master/Algorithm/LC1108.md)
 - [LC1221.md](https://github.com/XiangkeChen/My_Leetcode/blob/master/Algorithm/LC1221.md)
