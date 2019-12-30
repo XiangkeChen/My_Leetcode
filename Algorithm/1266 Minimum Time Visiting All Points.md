@@ -13,7 +13,7 @@ You can move according to the next rules:
 
 **Example 1:**
 
-![image-20191228120800112](00_pythonnote.assets/image-20191228120800112.png)
+![image-20191230122156326](00_PythonNote.assets/image-20191230122156326.png)
 
 ```
 Input: points = [[1,1],[3,4],[-1,0]]
