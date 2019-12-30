@@ -61,4 +61,5 @@ You should know what `join` is used for <u>list concat</u>, if you want to conca
 
 And there is a example of `join`
 
-![image-20191229212931401](00_pythonnote.assets/image-20191229212931401.png)
+![image-20191229212931401](00_PythonNote.assets/image-20191229212931401.png)
+
