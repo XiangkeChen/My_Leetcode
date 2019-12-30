@@ -1,3 +1,5 @@
+[TOC]
+
 # Review
 
 ## Format Output
@@ -11,7 +13,7 @@ print('{0:4d} {1:8.1f} {2:5.2f}'.format(year, qty, price))
 - 输出右对齐
 
 format 函数里面可以规定空几个格子
-![image-20191220203120442](PythonNote.assets/image-20191220203120442.png)
+![image-20191220203120442](00_PythonNote.assets/image-20191220203120442.png)
 
 ```python
 print('{0:4d} {1:11.1f}'.format(i,initial)) 
@@ -181,7 +183,7 @@ else:
 
 ## 1295 [Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits)  
 
-![image-20191227173815652](PythonNote.assets/image-20191227173815652.png)
+![image-20191227173815652](00_PythonNote.assets/image-20191227173815652.png)
 
 这道题唯一要注意的大概就是，len(num) 是不可以的，数字是没有长度的，所以我们可以把数字先变成string，然后看string的长度
 
@@ -189,7 +191,7 @@ else:
 
 ## 771 [ Jewels and Stones](https://leetcode.com/problems/jewels-and-stones)  
 
-![image-20191227181416693](PythonNote.assets/image-20191227181416693.png)
+![image-20191227181416693](00_PythonNote.assets/image-20191227181416693.png)
 
 这道题很简单 不过参考答案里面有一个写法我之前不会 这里扩展一下知识
 
@@ -198,21 +200,13 @@ def numJewelsInStones(self, J, S):
     return sum(map(S.count, J))      
 ```
 
-![image-20191227181520868](PythonNote.assets/image-20191227181520868.png)
+![image-20191227181520868](00_PythonNote.assets/image-20191227181520868.png)
 
 我们是可以用 `count` 这个函数去数一个list/str/里面出现元素的次数的
 
-
-
-## 1221 [ Split a String in Balanced Strings](https://leetcode.com/problems/split-a-string-in-balanced-strings)  
-
-![image-20191228112253662](PythonNote.assets/image-20191228112253662.png)
-
-挺简单的 就计数就完事了
-
 ## 1266 [ Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points)  
 
-![image-20191228120800112](PythonNote.assets/image-20191228120800112.png)
+![image-20191228120800112](00_PythonNote.assets/image-20191228120800112.png)
 
 这道题我一开始还写了挺久的
 
@@ -268,3 +262,10 @@ return sum(max(abs(p[i][0] - p[i - 1][0]),
 
 其实，我觉得不要让i从0开始跑 因为i+1可能会超过边界。我们可以就从i = 1开始，然后用i-1表示上一个元素 会少一个判断条件 更加简便
 
+## 1290 [Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer)  
+
+这道题暂时还搞不太懂
+
+主要是要先稍微学习一下链表的用法 不然就不会啦
+
+![image-20191229210907337](00_PythonNote.assets/image-20191229210907337.png)
