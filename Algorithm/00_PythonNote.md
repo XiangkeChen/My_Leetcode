@@ -1,4 +1,21 @@
-[TOC]
+
+
+- [Review](#review)
+  * [Format Output](#format-output)
+  * [Read / Load files](#read---load-files)
+  * [Data Structure](#data-structure)
+  * [Metrics Calculation](#metrics-calculation)
+  * [Functions Reminders](#functions-reminders)
+  * [经典习题](#----)
+  * [是不是闰年 leap year](#------leap-year)
+- [Leetcode](#leetcode)
+  * [1295 [Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits)](#1295--find-numbers-with-even-number-of-digits--https---leetcodecom-problems-find-numbers-with-even-number-of-digits-)
+  * [771 [ Jewels and Stones](https://leetcode.com/problems/jewels-and-stones)](#771---jewels-and-stones--https---leetcodecom-problems-jewels-and-stones-)
+  * [1266 [ Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points)](#1266---minimum-time-visiting-all-points--https---leetcodecom-problems-minimum-time-visiting-all-points-)
+  * [1290 [Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer)](#1290--convert-binary-number-in-a-linked-list-to-integer--https---leetcodecom-problems-convert-binary-number-in-a-linked-list-to-integer-)
+  * [709 [To Lower Case](https://leetcode.com/problems/to-lower-case)](#709--to-lower-case--https---leetcodecom-problems-to-lower-case-)
+
+<small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
 # Review
 
@@ -269,3 +286,45 @@ return sum(max(abs(p[i][0] - p[i - 1][0]),
 主要是要先稍微学习一下链表的用法 不然就不会啦
 
 ![image-20191229210907337](00_PythonNote.assets/image-20191229210907337.png)
+
+
+
+## 709 [To Lower Case](https://leetcode.com/problems/to-lower-case)  
+
+![image-20191229212809253](00_PythonNote.assets/image-20191229212809253.png)
+
+**Solution**
+
+```python
+class Solution:
+    def toLowerCase(self, str: str) -> str:
+        return str.lower()
+```
+
+```python
+class Solution:
+    def toLowerCase(self, str: str) -> str:
+        return ''.join((chr(ord(s)+32)) if ord(s)>=65 and ord(s) <=90 else s for s in str)
+```
+
+```python
+class Solution:
+    def toLowerCase(self, str: str) -> str:
+        result = ''
+        for s in str:
+          if ord(s) >= 65 and ord(s) <= 90:
+            result = result + (chr(ord(s) + 32))
+          else:
+            result = result + s
+        return result
+```
+
+**Idea**
+
+This question push you to think from `ASCII` rather than directly use built-in function.
+
+You should know what `join` is used for <u>list concat</u>, if you want to concat string, just use <u>operator `"+"`</u>
+
+And there is a example of `join`
+
+![image-20191229212931401](00_PythonNote.assets/image-20191229212931401-7676613.png)
