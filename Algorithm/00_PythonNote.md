@@ -1,5 +1,3 @@
-
-
 - [Review](#review)
   * [Format Output](#format-output)
   * [Read / Load files](#read---load-files)
@@ -9,11 +7,11 @@
   * [经典习题](#----)
   * [是不是闰年 leap year](#------leap-year)
 - [Leetcode](#leetcode)
-  * [1295 [Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits)](#1295--find-numbers-with-even-number-of-digits--https---leetcodecom-problems-find-numbers-with-even-number-of-digits-)
-  * [771 [ Jewels and Stones](https://leetcode.com/problems/jewels-and-stones)](#771---jewels-and-stones--https---leetcodecom-problems-jewels-and-stones-)
-  * [1266 [ Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points)](#1266---minimum-time-visiting-all-points--https---leetcodecom-problems-minimum-time-visiting-all-points-)
-  * [1290 [Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer)](#1290--convert-binary-number-in-a-linked-list-to-integer--https---leetcodecom-problems-convert-binary-number-in-a-linked-list-to-integer-)
-  * [709 [To Lower Case](https://leetcode.com/problems/to-lower-case)](#709--to-lower-case--https---leetcodecom-problems-to-lower-case-)
+  * [1295 Find Numbers with Even Number of Digits](#1295-find-numbers-with-even-number-of-digits)
+  * [771 Jewels and Stones](#771-jewels-and-stones)
+  * [1266 Minimum Time Visiting All Points](#1266-minimum-time-visiting-all-points)
+  * [1290 Convert Binary Number in a Linked List to Integer](#1290-convert-binary-number-in-a-linked-list-to-integer)
+  * [709 To Lower Case](#709-to-lower-case)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
@@ -198,7 +196,7 @@ else:
 
 # Leetcode
 
-## 1295 [Find Numbers with Even Number of Digits](https://leetcode.com/problems/find-numbers-with-even-number-of-digits)  
+## 1295 Find Numbers with Even Number of Digits
 
 ![image-20191227173815652](00_PythonNote.assets/image-20191227173815652.png)
 
@@ -206,7 +204,7 @@ else:
 
 
 
-## 771 [ Jewels and Stones](https://leetcode.com/problems/jewels-and-stones)  
+## 771 Jewels and Stones
 
 ![image-20191227181416693](00_PythonNote.assets/image-20191227181416693.png)
 
@@ -221,7 +219,7 @@ def numJewelsInStones(self, J, S):
 
 我们是可以用 `count` 这个函数去数一个list/str/里面出现元素的次数的
 
-## 1266 [ Minimum Time Visiting All Points](https://leetcode.com/problems/minimum-time-visiting-all-points)  
+## 1266 Minimum Time Visiting All Points
 
 ![image-20191228120800112](00_PythonNote.assets/image-20191228120800112.png)
 
@@ -279,7 +277,7 @@ return sum(max(abs(p[i][0] - p[i - 1][0]),
 
 其实，我觉得不要让i从0开始跑 因为i+1可能会超过边界。我们可以就从i = 1开始，然后用i-1表示上一个元素 会少一个判断条件 更加简便
 
-## 1290 [Convert Binary Number in a Linked List to Integer](https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer)  
+## 1290 Convert Binary Number in a Linked List to Integer
 
 这道题暂时还搞不太懂
 
@@ -289,7 +287,7 @@ return sum(max(abs(p[i][0] - p[i - 1][0]),
 
 
 
-## 709 [To Lower Case](https://leetcode.com/problems/to-lower-case)  
+## 709 To Lower Case
 
 ![image-20191229212809253](00_PythonNote.assets/image-20191229212809253.png)
 
