@@ -22,13 +22,13 @@ For me, I'll say that subquery looks easier, more readable and understandable ve
 
 ## 175 [Combine Two Tables](https://leetcode.com/problems/combine-two-tables)
 
-![image-20191224102209201](SQL LeetCode.assets/image-20191224102209201.png)
+![image-20191224102209201](SQL Takeways.assets/image-20191224102209201.png)
 
 
 
 ## 176 [Second Highest Salary](https://leetcode.com/problems/second-highest-salary)  *
 
-![image-20191224174955915](SQL LeetCode.assets/image-20191224174955915.png)
+![image-20191224174955915](SQL Takeways.assets/image-20191224174955915.png)
 
 
 
@@ -70,7 +70,7 @@ SELECT
 
 
 
-![image-20191225163925615](SQL LeetCode.assets/image-20191225163925615.png)
+![image-20191225163925615](SQL Takeways.assets/image-20191225163925615.png)
 
 和上面176是一道题 这里的话要学习一下怎么写mysql的function
 
@@ -122,7 +122,7 @@ END
 
 ## 595 BigCountries
 
-![image-20191224102302885](SQL LeetCode.assets/image-20191224102302885.png)
+![image-20191224102302885](SQL Takeways.assets/image-20191224102302885.png)
 
 **Why `Union` is faster than `OR`?**
 
@@ -149,7 +149,7 @@ Did you pay attention to order of conditions in a where clause?
 
 ## 178 [Rank Scores](https://leetcode.com/problems/rank-scores) **
 
-![image-20191225183759759](SQL LeetCode.assets/image-20191225183759759.png)
+![image-20191225183759759](SQL Takeways.assets/image-20191225183759759.png)
 
 首先吐槽 LC不支持window func，就还挺麻烦的
 
@@ -306,7 +306,7 @@ SELECT  T.name AS Employee
 
 可以看出这一次 materialised table会更快
 
-![image-20191226112839301](SQL LeetCode.assets/image-20191226112839301.png)
+![image-20191226112839301](SQL Takeways.assets/image-20191226112839301.png)
 
 
 
@@ -314,7 +314,7 @@ SELECT  T.name AS Employee
 
 ## 181 [Duplicate Emails](https://leetcode.com/problems/duplicate-emails)  
 
-![image-20191226222408570](SQL LeetCode.assets/image-20191226222408570.png)
+![image-20191226222408570](SQL Takeways.assets/image-20191226222408570.png)
 
 这道题的确是easy中的easy了 我倒是没有什么特别要说的
 
@@ -339,7 +339,7 @@ having count(Email) > 1;
 
 更多元的解法[在这](https://leetcode.com/problems/duplicate-emails/discuss/53528/I-have-this-Simple-Approach-anybody-has-some-other-way)
 
-![image-20191226222545428](SQL LeetCode.assets/image-20191226222545428.png)
+![image-20191226222545428](SQL Takeways.assets/image-20191226222545428.png)
 
 甚至懒得打字了hhhh
 
@@ -413,7 +413,7 @@ WHERE E.DepartmentId = D.id
 
 ## 185 [Department Top Three Salaries](https://leetcode.com/problems/department-top-three-salaries) 
 
-![image-20191228230357988](SQL LeetCode.assets/image-20191228230357988.png)
+![image-20191228230357988](SQL Takeways.assets/image-20191228230357988.png)
 
 
 
@@ -509,13 +509,13 @@ WHERE a1.id=a2.id;
 
 另外，MySQL does not allow the table you're deleting from be used in a subquery for the condition. [参考说明](https://stackoverflow.com/questions/4471277/mysql-delete-from-with-subquery-as-condition)) 即
 
-![image-20191227170130258](SQL LeetCode.assets/image-20191227170130258.png)
+![image-20191227170130258](SQL Takeways.assets/image-20191227170130258.png)
 
 
 
 ## 197 [Rising Temperature](https://leetcode.com/problems/rising-temperature)  
 
-![image-20191229111137421](SQL LeetCode.assets/image-20191229111137421.png)
+![image-20191229111137421](SQL Takeways.assets/image-20191229111137421.png)
 
 解法
 
