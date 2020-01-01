@@ -22,6 +22,8 @@ For me, I'll say that subquery looks easier, more readable and understandable ve
 
 ## 175 [Combine Two Tables](https://leetcode.com/problems/combine-two-tables)
 
+
+
 ![image-20191224102209201](SQL Takeways.assets/image-20191224102209201.png)
 
 
