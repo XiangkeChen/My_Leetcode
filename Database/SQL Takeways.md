@@ -6,7 +6,10 @@ Answer quoted from [mysql](https://dev.mysql.com/doc/refman/5.7/en/rewriting-sub
 
 
 
-```A LEFT [OUTER] JOIN can be faster than an equivalent subquery because the server might be able to optimize it better—a fact that is not specific to MySQL Server alone. Prior to SQL-92, outer joins did not exist, so subqueries were the only way to
+```
+A LEFT [OUTER] JOIN can be faster than an equivalent subquery because the server might be able to optimize it better—a fact
+that is not specific to MySQL Server alone. Prior to SQL-92, outer joins did not exist, so subqueries were the only way to
+
 do certain things. Today, MySQL Server and many other modern database systems offer a wide range of outer join types.
 ```
 
