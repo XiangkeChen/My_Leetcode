@@ -8,9 +8,7 @@ Answer quoted from [mysql](https://dev.mysql.com/doc/refman/5.7/en/rewriting-sub
 
 ```
 A LEFT [OUTER] JOIN can be faster than an equivalent subquery because the server might be able to optimize it better—a fact
-that is not specific to MySQL Server alone. Prior to SQL-92, outer joins did not exist, so subqueries were the only way to
-
-do certain things. Today, MySQL Server and many other modern database systems offer a wide range of outer join types.
+that is not specific to MySQL Server alone. Prior to SQL-92, outer joins did not exist, so subqueries were the only way to do certain things. Today, MySQL Server and many other modern database systems offer a wide range of outer join types.
 ```
 
 Answer quoted from [Stackoverflow](https://stackoverflow.com/questions/2577174/join-vs-sub-query):
@@ -19,7 +17,7 @@ Answer quoted from [Stackoverflow](https://stackoverflow.com/questions/2577174/j
 
 For me, I'll say that subquery looks easier, more readable and understandable versus join. And you should keep in mind that there might be **duplicate** records while using join query. So you should always keep cautious. 
 
-
+![image-20200101134304272](SQL Takeways.assets/image-20200101134304272.png)
 
 ---
 
