@@ -30,6 +30,8 @@ only one select statement
 |2  | 2017|
 |3  | 2016|
 +---+-----+
+A LEFT [OUTER] JOIN can be faster than an equivalent subquery because the server might be able to optimize it better—a fact
+that is not specific to MySQL Server alone. Prior to SQL-92, outer joins did not exist, so subqueries were the only way to do certain things. Today, MySQL Server and many other modern database systems offer a wide range of outer join types.
 ```
 
 This Question restrain you only use one `select` statement without any subquery ( left join (select * from xxx)) is forbidden too)
