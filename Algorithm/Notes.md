@@ -89,6 +89,8 @@ def state_for_senator(file,name):
 
 ## Data Structure
 
+### List
+
 - List Comprehension
 
 ```python
@@ -112,6 +114,12 @@ flattened = [n for row in matrix for n in row]
 ```
 
 要注意的是如果有if else的判断语句 逻辑顺序是 if -> for -> else 
+
+-  `Append`
+
+  a.append(3) ☑️
+
+  a = a.append(3) ❌
 
 
 

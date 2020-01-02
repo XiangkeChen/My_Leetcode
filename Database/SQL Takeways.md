@@ -17,7 +17,7 @@ Answer quoted from [Stackoverflow](https://stackoverflow.com/questions/2577174/j
 
 For me, I'll say that subquery looks easier, more readable and understandable versus join. And you should keep in mind that there might be **duplicate** records while using join query. So you should always keep cautious. 
 
-![image-20200101134304272](SQL Takeways.assets/image-20200101134304272.png)
+
 
 ---
 
