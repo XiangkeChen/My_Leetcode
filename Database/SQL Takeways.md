@@ -17,6 +17,37 @@ Answer quoted from [Stackoverflow](https://stackoverflow.com/questions/2577174/j
 
 For me, I'll say that subquery looks easier, more readable and understandable versus join. And you should keep in mind that there might be **duplicate** records while using join query. So you should always keep cautious. 
 
+**Exercise**
+
+```
+Find ID whose years in 2016 not in 2017, you can't use subquery,
+only one select statement
++---+-----+
+|ID | Year|
++---+-----+
+|1  | 2016|
+|1  | 2017|
+|2  | 2017|
+|3  | 2016|
++---+-----+
+```
+
+This Question restrain you only use one `select` statement without any subquery ( left join (select * from xxx)) is forbidden too)
+
+The solution below shows the technique using `join` and `on` to achieve the same effect of using subquery
+
+**Most important is to note that `on T2.year = 2017`**
+
+You should also be skilled at using combination of `left join` and `is null`
+
+```mysql
+SELECT DISTINCT *
+  FROM ID_Year T1
+  LEFT JOIN ID_Year T2 ON T1.ID = T2.ID AND T2.year = 2017
+ WHERE T1.year = 2016
+   AND T2.year IS NULL
+```
+
 
 
 ---
