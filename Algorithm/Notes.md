@@ -170,9 +170,9 @@ np.average(error)
   
   
 
-## 经典习题
+## Classical Questions
 
-## 是不是闰年 leap year
+### Leap year
 
 参考解法一 – 分段排除：
 如果a % 4 ! = 0，则a不是闰年；
@@ -200,5 +200,31 @@ else:
 
 
 
---------
+### Factor (Prime Number)
+
+Find the factors of the input number 
+
+```python
+def factor_num(number):
+    l = []
+    for i in range(1,number+1):
+        if number % i == 0:
+            l.append(i)
+    return l
+```
+
+Loop all the numbers and append those qualified of factors 
+
+If you are asked to determine the prime number, you only need to change a little bit
+
+```python
+def prime_number(num):
+    prime = True
+    for i in range(2,num):
+        if num % i == 0:
+            prime = False
+    if num == 2:
+        prime = True
+    return prime
+```
 
