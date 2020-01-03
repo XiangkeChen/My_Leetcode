@@ -120,6 +120,14 @@ flattened = [n for row in matrix for n in row]
   a.append(3) ☑️
 
   a = a.append(3) ❌
+  
+-  `Sort`
+
+   a_list.sort(*, key = None, reverse = False)
+
+   This is inplace sort, no need to write `a = a.sort()`, if you want to sort descending, just `reverse=False`
+
+   
 
 
 
@@ -150,7 +158,7 @@ np.average(error)
 
 - **Sum()**
 
-  Sum can be used for merging **nested list**.
+  Sum can be used for merging **nested list**. Only nested list, single list cannot be summed
 
   Say if L is a nested list, we can create a new list by
 
@@ -167,8 +175,12 @@ np.average(error)
 - **Reverse()**
 
   `list(reverse(a_list))` can return the reversed list, or you can use `a_list.reverse()`
-  
-  
+
+- **Join()**
+
+  `''.join(a_list)` can concat the element in the list. This cannot be a nested list. If you want to concat the elements in the nested list, you can use `sum()` first, and then `''.join()`
+
+
 
 ## Classical Questions
 
@@ -215,6 +227,8 @@ def factor_num(number):
 
 Loop all the numbers and append those qualified of factors 
 
+If you want to **Factorial**, just multiply them all
+
 If you are asked to determine the prime number, you only need to change a little bit
 
 ```python
@@ -226,5 +240,56 @@ def prime_number(num):
     if num == 2:
         prime = True
     return prime
+```
+
+
+
+# Calculate the Area of a Triangle
+
+If a, b and c are three sides of a triangle. Then,
+
+```
+s = (a+b+c)/2
+area = √(s(s-a)*(s-b)*(s-c))
+```
+
+
+
+```python
+# calculate the semi-perimeter
+s = (a + b + c) / 2
+# calculate the area
+area = (s*(s-a)*(s-b)*(s-c)) ** 0.5
+print('The area of the triangle is %0.2f' %area)
+```
+
+
+
+## Generate Random Number
+
+**INTEGER**
+
+```python
+import random
+# take 2 arguments
+random.randint(start,end)
+```
+
+**DECIMAL**
+
+```python
+import random
+# take no argument
+random.ranom()
+```
+
+
+
+# Some Knowledge
+
+## Convert Celsius To Fahrenheit
+
+```python
+celsius * 1.8 = fahrenheit - 32
 ```
 
