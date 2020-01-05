@@ -1,6 +1,39 @@
-# SQL Knowledge
+# Data Definition Language (DDL)
 
-## Join VS Subquery
+`create database [name]` = `create schema [name]`
+
+```mysql
+CREATE TABLE Employee (
+  empId INTEGER NOT NULL PRIMARY KEY, 
+  empSSN CHAR(11) NOT NULL UNIQUE, 
+  ...)
+```
+
+`Drop database [name]` this will delete an entire database in the blink of an eye, you should be careful
+
+`Drop Table [name]`  when you have a reference, you cannot delete the table directly
+
+`Auto_increment` generate unique IDs
+
+```mysql
+CREATE TABLE Employee (
+  empId INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  ...)
+```
+
+`Alter Table`  if you want to change a table
+
+```mysql
+ALTER TABLE Student ADD COLUMN birth_year INT;
+ALTER TABLE Student DROP COLUMN birth_year;
+ALTER TABLE Student MODIFY COLUMN birth_year CHAR(4);
+```
+
+`Describe Table` to get information for a particular table
+
+`Show tables` to show all tables in the current database
+
+# Join VS Subquery
 
 Answer quoted from [mysql](https://dev.mysql.com/doc/refman/5.7/en/rewriting-subqueries.html): 
 
@@ -50,7 +83,7 @@ SELECT DISTINCT *
 
 
 
-## SQL vs NoSQL
+# SQL vs NoSQL
 
 [Sql vs Nosql](https://www.guru99.com/sql-vs-nosql.html)
 
@@ -76,3 +109,32 @@ SELECT DISTINCT *
 ---
 
 https://stackoverflow.com/questions/46856267/implement-rank-without-using-analytic-function)
+
+
+
+# TIME FUNCTIONS
+
+**DATE_TIME**
+
+date_time(date, format)
+
+| Specifier | Description                            |
+| --------- | -------------------------------------- |
+| `%c`      | Month, numeric (`0`..`12`)             |
+| `%d`      | Day of the month, numeric (`00`..`31`) |
+| `%e`      | Day of the month, numeric (`0`..`31`)  |
+| `%H`      | Hour (`00`..`23`)                      |
+| `%h`      | Hour (`01`..`12`)                      |
+| `%I`      | Hour (`01`..`12`)                      |
+| `%i`      | Minutes, numeric (`00`..`59`)          |
+| `%k`      | Hour (`0`..`23`)                       |
+| `%l`      | Hour (`1`..`12`)                       |
+| `%m`      | Month, numeric (`00`..`12`)            |
+| `%s`      | Seconds (`00`..`59`)                   |
+| `%T`      | Time, 24-hour (*`hh:mm:ss`*)           |
+| `%Y`      | Year, numeric, four digits             |
+| `%y`      | Year, numeric (two digits)             |
+| `%%`      | A literal `%` character                |
+
+
+

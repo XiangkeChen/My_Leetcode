@@ -43,9 +43,15 @@ input = input('Enter your input')
 
 
 - Two types of division:
-  -  / operator performs **floating point division**
+  - / operator performs **floating point division** 
+  
+    `4/2` = 2.0
+  
   -  // operator performs **integer division** 
-    - Positive results truncated, negative rounded away from zero
+    
+    `4//2` = 2
+    
+    -  Positive results truncated, negative rounded away from zero
 
 
 
@@ -128,6 +134,41 @@ flattened = [n for row in matrix for n in row]
    This is inplace sort, no need to write `a = a.sort()`, if you want to sort descending, just `reverse=False`
 
    
+
+### Dictionary
+
+- Sort Dict by Value [link](https://stackoverflow.com/questions/613183/how-do-i-sort-a-dictionary-by-value)
+
+  Return a <u>list</u> rather than a dict
+
+  ```python
+  x = {1: 2, 3: 4, 4: 3, 2: 1, 0: 0}
+  # ascending
+  sorted_x = sorted(x.items(), key=lambda kv: kv[1])
+  # descending
+  sorted_x = sorted(x.items(), key=lambda kv: -1 * kv[1])
+  ```
+
+- Sort dict by key
+
+  ```python
+  keylist = mydict.keys()
+  keylist.sort()
+  for key in keylist:
+      print "%s: %s" % (key, mydict[key])
+  ```
+
+  
+
+- **Get()**
+
+  This function is really useful and you can use it to get the frequency of the key
+
+  ```python
+  fre[key] = fre.get(key,0) + 1
+  ```
+
+  
 
 
 
