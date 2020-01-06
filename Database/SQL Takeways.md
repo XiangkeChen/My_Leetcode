@@ -33,6 +33,20 @@ ALTER TABLE Student MODIFY COLUMN birth_year CHAR(4);
 
 `Show tables` to show all tables in the current database
 
+-----
+
+# Data Manipulation Language (DML)
+
+`Insert Into Table[name][column] Values [value]`
+
+![image-20200105210836394](SQL Takeways.assets/image-20200105210836394.png)
+
+`Insert Into All fields`
+
+![image-20200105210854904](SQL Takeways.assets/image-20200105210854904.png)
+
+
+
 # Join VS Subquery
 
 Answer quoted from [mysql](https://dev.mysql.com/doc/refman/5.7/en/rewriting-subqueries.html): 
@@ -137,4 +151,9 @@ date_time(date, format)
 | `%%`      | A literal `%` character                |
 
 
+
+# Trap
+
+- `1 + NULL`, return NULL
+- 
 
