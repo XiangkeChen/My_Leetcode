@@ -1,10 +1,12 @@
 # Data Definition Language (DDL)
 
+## Query
+
 `create database [name]` = `create schema [name]`
 
 ```mysql
 CREATE TABLE Employee (
-  empId INTEGER NOT NULL PRIMARY KEY, 
+  empId INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY, 
   empSSN CHAR(11) NOT NULL UNIQUE, 
   ...)
 ```
@@ -33,21 +35,112 @@ ALTER TABLE Student MODIFY COLUMN birth_year CHAR(4);
 
 `Show tables` to show all tables in the current database
 
+
+
+## Data Types
+
+- INT / BIGINT / TINYINT / FLOAT / DOUBLE
+- DATETIME [YYYY-MM-DD HH:MM:SS] / 
+  DATE [YYYY-MM-DD] / 
+  TIMESTAMP [YYYY-MM-DD HH:MM:SS]
+  Timestamp may vary according to the time zone while datetime don't change
+- CHAR / VARCHAR
+
 -----
 
 # Data Manipulation Language (DML)
 
-`Insert Into Table[name][column] Values [value]`
+## Insert
+
+**Insert into a subset of fields**
 
 ![image-20200105210836394](SQL_Takeways.assets/image-20200105210836394.png)
 
-`Insert Into All fields`
+**Insert Into All fields**
 
-![image-20200105210854904](SQL_Takeways.assets/image-20200105210854904.png)
+![image-20200105211926011](SQL_Takeways.assets/image-20200105211926011.png)
+
+**Insert into (from another table)**
+
+![image-20200105211943622](SQL_Takeways.assets/image-20200105211943622.png)
+
+----
+
+## Update
+
+```
+Be careful with UPDATE, if the WHERE clause is missing, it will update every row with the same values
+```
 
 
 
-# Join VS Subquery
+Update table_name SET column_1 = expression_1 WHERE xxx
+
+Update clause can also used with subquery
+
+## Delete
+
+`Delete [FROM] table_name [WHERE search_condition]`
+
+## Selection
+
+![image-20200106171308826](SQL_Takeways.assets/image-20200106171308826.png)
+
+
+
+# String Functions
+
+## String Selection
+
+Filter for string condition
+
+```mysql
+-- 10. (I do) Show all vendors with names beginning with A to L
+SELECT * 
+  FROM vendors
+ WHERE vendor_name < 'M';
+```
+
+## String Functions
+
+- **concat()**
+
+`concat(string / col, string / col / , ...)`
+
+**Example**
+
+```mysql
+SELECT concat(first_name,' ',last_name) AS vendor_names
+FROM vendor_contacts;
+```
+
+
+
+- Like  / Not Like
+- 
+
+
+
+# Knowledge
+
+## Join Table by Where vs by On
+
+[link](https://stackoverflow.com/questions/2722795/in-sql-mysql-what-is-the-difference-between-on-and-where-in-a-join-statem)
+
+The `ON` clause defines the relationship between the tables.
+
+The `WHERE` clause describes which rows you are interested in.
+
+Many times you can swap them and still get the same result, however this is not always the case with a left outer join.
+
+> - If the `ON` clause fails you still get a row with columns from the left table but with nulls in the columns from the right table.
+> - If the `WHERE` clause fails you won't get that row at all.
+
+
+
+## Join VS Subquery
+
+Join is also called **Cartesian Product**
 
 Answer quoted from [mysql](https://dev.mysql.com/doc/refman/5.7/en/rewriting-subqueries.html): 
 
@@ -97,7 +190,7 @@ SELECT DISTINCT *
 
 
 
-# SQL vs NoSQL
+## SQL vs NoSQL
 
 [Sql vs Nosql](https://www.guru99.com/sql-vs-nosql.html)
 
@@ -152,7 +245,30 @@ date_time(date, format)
 
 
 
-# Trap
+# Tips
 
 - `1 + NULL`, return NULL
-- 
+
+- In `WHERE` clause, you cannot directly refer to the renamed column you selected, you can use `having` or restate the original column name
+
+  i.e.
+
+  ```mysql
+  # correct
+  SELECT invoice_number,
+  	   invoice_total - payment_total - credit_total AS balance
+    FROM invoices
+   WHERE invoice_total - payment_total - credit_total = 0;
+  
+  # correct
+  SELECT invoice_number,
+  	     invoice_total - payment_total - credit_total AS balance
+     FROM invoices
+   HAVING balance = 0;
+  
+  # wrong
+  SELECT invoice_number,
+  			 invoice_total - payment_total - credit_total AS balance
+  	FROM invoices
+   WHERE balance = 0;
+  ```
