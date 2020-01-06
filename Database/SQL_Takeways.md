@@ -156,7 +156,3 @@ date_time(date, format)
 
 - `1 + NULL`, return NULL
 - 
-
-
-
-![image-20200105211213905](SQL_Takeways.assets/image-20200105211213905.png)
