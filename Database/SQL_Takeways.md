@@ -39,11 +39,11 @@ ALTER TABLE Student MODIFY COLUMN birth_year CHAR(4);
 
 `Insert Into Table[name][column] Values [value]`
 
-![image-20200105210836394](sql_takeways.assets/image-20200105210836394.png)
+![image-20200105210836394](SQL_Takeways.assets/image-20200105210836394.png)
 
 `Insert Into All fields`
 
-![image-20200105210854904](sql_takeways.assets/image-20200105210854904.png)
+![image-20200105210854904](SQL_Takeways.assets/image-20200105210854904.png)
 
 
 
