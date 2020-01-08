@@ -86,6 +86,18 @@ Update clause can also used with subquery
 
 ![image-20200106171308826](SQL_Takeways.assets/image-20200106171308826.png)
 
+## JOIN
+
+Simulate a `full outer join` in mysql. There is no full outer join in mysql
+
+And we can use `left join` , `union all` and `right join` to mimic it
+
+
+
+Stackoverflow Link
+
+
+
 
 
 # String Functions
@@ -219,6 +231,30 @@ https://stackoverflow.com/questions/46856267/implement-rank-without-using-analyt
 
 
 
+## Count(1) Vs Count(*)
+
+[Link](https://searchoracle.techtarget.com/answer/COUNT-or-COUNT-1)
+
+The difference is simple: 
+
+**COUNT(\*) counts the number of rows produced by the query, whereas COUNT(1) counts the number of 1 values.** 
+
+Note that when you include a **literal** such as a number or a string in a query, this literal is "appended" or attached to every row that is produced by the FROM clause. This also applies to literals in aggregate functions, such as COUNT(1). It's hard to imagine a scenario where the COUNT(*) and COUNT(1) values would be different, so please do let me know if you find one.
+
+In general, you should always use COUNT(\*). This is because the database can often count rows by accessing an index, which is much faster than accessing a table. If you use COUNT(*column*), the database must actually inspect the individual values in the column, since it will not count NULLs. Aggregate functions like COUNT and SUM always ignore NULLs.
+
+One would like to assume that the database optimizer is smart enough to realize that the literal value 1 will never be NULL, and not need to inspect it on every row, but it also would not surprise me to find out that the actions of appending the 1s into every row produced by the FROM clause and counting the 1s are handled by two separate logic modules, and maybe the module doing the counting doesn't know where the 1s came from. So just use COUNT(*).
+
+
+
+In terms of result,
+
+- count(*) == count(1) == count(any number here)
+- count(column_name) eliminate NULL
+- count(distinct columnn_name) eliminate duplicates
+
+
+
 # TIME FUNCTIONS
 
 **DATE_TIME**
@@ -242,6 +278,8 @@ date_time(date, format)
 | `%Y`      | Year, numeric, four digits             |
 | `%y`      | Year, numeric (two digits)             |
 | `%%`      | A literal `%` character                |
+
+
 
 
 
