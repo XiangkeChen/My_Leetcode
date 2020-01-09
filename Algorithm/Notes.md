@@ -191,6 +191,8 @@ for i in range(5):
 np.average(error)
 ```
 
+
+
 ## Functions Reminders
 
 - **Splits(sep = None, Maxsplit = -1)**
@@ -221,11 +223,91 @@ np.average(error)
 
   `''.join(a_list)` can concat the element in the list. This cannot be a nested list. If you want to concat the elements in the nested list, you can use `sum()` first, and then `''.join()`
 
+- **Sort()**
+
+  - [How to sort a list based on another list?](https://stackoverflow.com/questions/6618515/sorting-list-based-on-values-from-another-list)
+
+    ```python
+    # using numpy argsort()
+    people = np.array(['Jim', 'Pam', 'Micheal', 'Dwight'])
+    ages = np.array([27, 25, 4, 9])
+    sortedPeople = people[ages.argsort()]
+    
+    # using basic list sort function, combined with function zip()
+    X = ["a", "b", "c", "d", "e", "f", "g", "h", "i"]
+    Y = [ 0,   1,   1,    0,   1,   2,   2,   0,   1]
+    
+    Z = [x for y,x in sorted(zip(Y,X))]
+    print(Z)  # ["a", "d", "h", "b", "c", "e", "i", "f", "g"]
+    ```
+
+  - [Sort a string with a number inside a python](https://www.tutorialspoint.com/How-to-correctly-sort-a-string-with-a-number-inside-in-Python)
+
+    This type of sort in which you want to sort on the basis of numbers within string is called natural sort or human sort. For example, if you have the text:
+
+    ```
+    ['Hello1','Hello12', 'Hello29', 'Hello2', 'Hello17', 'Hello25']
+    ```
+
+     Then you want the sorted list to be:
+
+    ```
+    ['Hello1', 'Hello2','Hello12', 'Hello17', 'Hello25', 'Hello29']
+    ```
+
+     and not:
+
+    ```
+    ['Hello1','Hello12', 'Hello17', 'Hello2', 'Hello25', 'Hello29']
+    ```
+
+     To do this we can use the extra parameter that sort() uses. This is a function that is called to calculate the key from the entry in the list. We use regex to extract the number from the string and sort on both text and number. 
+
+    ```python
+    import re
+    def atoi(text):
+      return int(text) if text.isdigit() else text
+    def natural_keys(text):
+      return [ atoi(c) for c in re.split('(\d+)',text) ]
+    my_list =['Hello1', 'Hello12', 'Hello29', 'Hello2', 'Hello17', 'Hello25']
+    my_list.sort(key=natural_keys)
+    print my_list
+    ```
+
+     This will give you the output:
+
+    ```python
+    ['Hello1','Hello2', 'Hello12', 'Hello17', 'Hello25', 'Hello29']
+    ```
 
 
-## Classical Questions
+    The shorten version is that 
 
-### Leap year
+    ```python
+    def stringSplitByNumbers(x):
+        r = re.compile('(\d+)')
+        l = r.split(x)
+        return [int(y) if y.isdigit() else y for y in l]
+    ```
+
+  - Sort by a function
+
+    `Sorted_list = my_list.sort(key = function_name)`
+
+    i.e
+
+    ```python
+    a = ['asd','dasd','ds','feadsf']
+    a.sort(key = len, reverse = False)
+    a
+    # ['ds', 'asd', 'dasd', 'feadsf']
+    ```
+
+    - Functions like `max`, `Len`, `min` all can be used here
+
+# Classical Questions
+
+## Leap year
 
 参考解法一 – 分段排除：
 如果a % 4 ! = 0，则a不是闰年；
@@ -253,7 +335,7 @@ else:
 
 
 
-### Factor (Prime Number)
+## Factor (Prime Number)
 
 Find the factors of the input number 
 
@@ -285,7 +367,7 @@ def prime_number(num):
 
 
 
-# Calculate the Area of a Triangle
+## Calculate the Area of a Triangle
 
 If a, b and c are three sides of a triangle. Then,
 
