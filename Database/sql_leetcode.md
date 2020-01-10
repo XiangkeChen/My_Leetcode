@@ -211,7 +211,7 @@ ORDER BY Score desc
 
 ## 180[ Consecutive Numbers](https://leetcode.com/problems/consecutive-numbers)  
 
-![image-20191226110039210](sql_leetCode.assets/image-20191226110039210.png)
+![image-20191226110039210](SQL LeetCode.assets/image-20191226110039210.png)
 
 ```mysql
 # 成功答案
@@ -242,7 +242,7 @@ Select DISTINCT l1.Num
 
 比如
 
-![image-20191226110841030](sql_leetcode.assets/image-20191226110841030.png)
+![image-20191226110841030](SQL LeetCode.assets/image-20191226110841030.png)
 
 那就没办法找到对应答案了
 
