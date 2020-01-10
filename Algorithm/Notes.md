@@ -93,6 +93,10 @@ def state_for_senator(file,name):
     return result
 ```
 
+`list(f)`
+
+You can read the whole file at one by using `l = list(f)`, However, you will also include the new line characters. 
+
 ## Data Structure
 
 ### List
@@ -305,6 +309,23 @@ np.average(error)
 
     - Functions like `max`, `Len`, `min` all can be used here
 
+# Class 
+
+**Tips**
+
+- It's not necessary to have `__init__` function
+
+- `__str__` function , return the content you want to print , 
+
+  ```python
+  def __str__(self):
+  	return "the content you want to print"
+  ```
+
+  
+
+
+
 # Classical Questions
 
 ## Leap year
@@ -405,6 +426,12 @@ import random
 # take no argument
 random.ranom()
 ```
+
+
+
+## Delete one letter in the word
+
+f[]
 
 
 
