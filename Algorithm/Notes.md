@@ -388,6 +388,12 @@ def prime_number(num):
 
 
 
+**Private Variable**
+
+`self.__val` with underline is private variable 
+
+
+
 ## Calculate the Area of a Triangle
 
 If a, b and c are three sides of a triangle. Then,
