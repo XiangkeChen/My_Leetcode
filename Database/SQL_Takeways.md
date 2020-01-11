@@ -92,9 +92,50 @@ Simulate a `full outer join` in mysql. There is no full outer join in mysql
 
 And we can use `left join` , `union all` and `right join` to mimic it
 
+```mysql
+SELECT  department_number,
+		department_name,
+		employee_id,
+		first_name,
+		last_name
+  FROM  employees AS E
+  LEFT  JOIN  departments AS D USING(department_number)
+UNION ALL
+SELECT  department_number,
+		department_name,
+		employee_id,
+		first_name,
+		last_name
+  FROM  employees AS E
+ RIGHT  JOIN departments AS D USING(department_number)
+ WHERE  employee_id IS NULL;
+```
 
 
-Stackoverflow Link
+
+# Advanced SQL 
+
+## With Statement
+
+- Recursive Query
+
+  Read the example and learn how to write recursive query
+
+  ```mysql
+  WITH RECURSIVE cte AS (
+  SELECT *, 1 AS level
+    FROM employees
+   WHERE first_name = 'Paulo' AND last_name = 'Locario'
+  UNION ALL
+  SELECT E.*, t.level+1 as level
+    FROM employees AS E
+    JOIN cte T ON E.manager_id = t.employee_id
+  ) 
+  SELECT last_name,first_name,level from cte 
+  ORDER BY employee_id;
+  ```
+
+  
 
 
 
