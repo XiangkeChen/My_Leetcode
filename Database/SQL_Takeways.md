@@ -117,7 +117,7 @@ SELECT  department_number,
 
 ## With Statement
 
-- Recursive Query
+- **Recursive Query**
 
   Read the example and learn how to write recursive query
 
@@ -135,15 +135,11 @@ SELECT  department_number,
   ORDER BY employee_id;
   ```
 
-  
+  The sequence of writing a recursive query is that you need to find a base case first, usually with a `where` constriction. And then, you `UNION ALL` the same table, the `CTE` table and join on the condition. Much easier than Python query.
 
+## Functions
 
-
-
-
-# String Functions
-
-## String Selection
+### String Selection
 
 Filter for string condition
 
@@ -154,7 +150,7 @@ SELECT *
  WHERE vendor_name < 'M';
 ```
 
-## String Functions
+### String Functions
 
 - **concat()**
 
@@ -167,14 +163,91 @@ SELECT concat(first_name,' ',last_name) AS vendor_names
 FROM vendor_contacts;
 ```
 
-
-
 - Like  / Not Like
+
+- **SUBSTR(string, start, length)**
+
+  `SELECT SUBSTR("SQL Tutorial",5,3)` Return Tut
+
+  `SELECT SUBSTR("SQL Tutorial",5)` start from position 5 and select till the end
+
+- **INSTR(string1,string2)**
+
+  The INSTR() function returns the position of the first occurrence of the searched string2.
+
 - 
 
+### TIME FUNCTIONS
+
+**DATE_TIME**
+
+date_time(date, format)
+
+| Specifier | Description                            |
+| --------- | -------------------------------------- |
+| `%c`      | Month, numeric (`0`..`12`)             |
+| `%d`      | Day of the month, numeric (`00`..`31`) |
+| `%e`      | Day of the month, numeric (`0`..`31`)  |
+| `%H`      | Hour (`00`..`23`)                      |
+| `%h`      | Hour (`01`..`12`)                      |
+| `%I`      | Hour (`01`..`12`)                      |
+| `%i`      | Minutes, numeric (`00`..`59`)          |
+| `%k`      | Hour (`0`..`23`)                       |
+| `%l`      | Hour (`1`..`12`)                       |
+| `%m`      | Month, numeric (`00`..`12`)            |
+| `%s`      | Seconds (`00`..`59`)                   |
+| `%T`      | Time, 24-hour (*`hh:mm:ss`*)           |
+| `%Y`      | Year, numeric, four digits             |
+| `%y`      | Year, numeric (two digits)             |
+| `%%`      | A literal `%` character                |
 
 
-# Knowledge
+
+- **DATEDIFF(exp1, exp2)**
+
+  Return `exp1 - exp2` by days
+
+- **TO_DAYS(Date)**
+
+  Return days of the date 
+
+- **CURRENT_DATE()** / **CURDATE()**
+
+  Return current date
+
+- **TIMESTAMPDIFF(unit, start ,end )**
+
+  It will return the desired unit differ and doesn't require the start and end have the same format
+
+  ```mysql
+  SELECT TIMESTAMPDIFF(MONTH, '2018-01-01', '2018-06-01') result
+  +--------+
+  | result |
+  +--------+
+  |      5 |
+  +--------+
+  1 row in set
+  ```
+
+- **DAYOFWEEK(date)**
+
+  Return range from 1 to 7. Sunday is 1, Saturday is 7.
+
+- **WEEKDAY(date)**
+
+  The WEEKDAY() function returns the weekday number for a given date.
+
+  **Note:** 0 = Monday, 1 = Tuesday, 2 = Wednesday, 3 = Thursday, 4 = Friday, 5 = Saturday, 6 = Sunday.
+
+
+
+### Others
+
+- IFULL(column, default return)
+
+  If the column is null, it will return the default return, otherwise return the column 
+
+# Short Answers
 
 ## Join Table by Where vs by On
 
@@ -293,34 +366,6 @@ In terms of result,
 - count(*) == count(1) == count(any number here)
 - count(column_name) eliminate NULL
 - count(distinct columnn_name) eliminate duplicates
-
-
-
-# TIME FUNCTIONS
-
-**DATE_TIME**
-
-date_time(date, format)
-
-| Specifier | Description                            |
-| --------- | -------------------------------------- |
-| `%c`      | Month, numeric (`0`..`12`)             |
-| `%d`      | Day of the month, numeric (`00`..`31`) |
-| `%e`      | Day of the month, numeric (`0`..`31`)  |
-| `%H`      | Hour (`00`..`23`)                      |
-| `%h`      | Hour (`01`..`12`)                      |
-| `%I`      | Hour (`01`..`12`)                      |
-| `%i`      | Minutes, numeric (`00`..`59`)          |
-| `%k`      | Hour (`0`..`23`)                       |
-| `%l`      | Hour (`1`..`12`)                       |
-| `%m`      | Month, numeric (`00`..`12`)            |
-| `%s`      | Seconds (`00`..`59`)                   |
-| `%T`      | Time, 24-hour (*`hh:mm:ss`*)           |
-| `%Y`      | Year, numeric, four digits             |
-| `%y`      | Year, numeric (two digits)             |
-| `%%`      | A literal `%` character                |
-
-
 
 
 
