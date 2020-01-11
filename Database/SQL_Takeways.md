@@ -310,3 +310,5 @@ date_time(date, format)
   	FROM invoices
    WHERE balance = 0;
   ```
+
+- When you are asked to find `earliest`, `lastest`,`most recent` records, remember that you can use `min` or `max()` function to get the value 
