@@ -162,6 +162,10 @@ flattened = [n for row in matrix for n in row]
       print "%s: %s" % (key, mydict[key])
   ```
 
+  Actually, the above two code blocks can be summarised as below:
+
+  <img src="Notes.assets/image-20200112235343551.png" alt="image-20200112235343551" style="zoom:50%;" />
+
   
 
 - **Get()**
