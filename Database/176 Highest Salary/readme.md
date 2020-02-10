@@ -75,25 +75,31 @@ SELECT DISTINCT
 
 **Idea**
 
-首先，关于limit的用法，平时limit你会用的。这里就是可以学会limit,offset
+First, you can use `limit` function. But be aware of that `limit m,n` will start select data from `m+1` rows and return n rows in total
 
 ```mysql
 select column limit a,b
 ```
 
-他会从a+1行开始，选取b行的数据
-
-比如
+For example
 
 ```mysql
 select column limit 2,3
 ```
 
-就会选出 3,4,5 这三行。
+Rows (3,4,5) will be returned
 
-这道题有一个比较容易陷入陷阱的地方就是，如果记录是，100，100，其实是没有secondHighest的。以及100,100,200, 200, 第二大是100.如果你order by，会选到200.因为你没有**distinct**
 
-所以我们一定要加上distinct
+
+**Trap**
+
+One trap of this question is that what if there is no *second highest* records in our table? Can you still return the result? 
+
+The answer is no. You will return null. So be sure you also considerate this bound situation.
+
+For example, 
+
+If all the records in the table are 100,100,100. Then you don't have a second highest. To avoid this, you should use `distinct` function when `order` data.
 
 ```mysql
 # sample answer
@@ -103,6 +109,5 @@ SELECT
         FROM
             Employee
         ORDER BY Salary DESC
-     # 写成 limit 1,1 也是一样的 和offset是一个道理
-        LIMIT 1 OFFSET 1) AS SecondHighestSalary
+        LIMIT 1,1) AS SecondHighestSalary
 ```

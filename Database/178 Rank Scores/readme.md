@@ -64,7 +64,7 @@ prev的值在每一次比较的时候去改变 太骚啦！
 
 解法2
 
-这个解法更加舒适让我好理解一些
+More comfortable solution for me.
 
 ```mysql
 # subquery 的写法
@@ -72,7 +72,7 @@ SELECT
   Score,
   (SELECT count(distinct Score) FROM Scores WHERE Score >= s.Score) Rank
 FROM Scores s
-ORDER BY Score desc
+ORDER BY Score
 # materialized table
 # 不过为什么这里是group by id我还有点无解 但感觉上应该是找那个 可以unique identify一行记录的column
 SELECT s.Score, 
@@ -107,4 +107,19 @@ ORDER BY Score desc
 ```
 
 
+
+-----
+
+**window function**
+
+```mysql
+WITH CTE AS(
+	SELECT  ID,
+			Score,
+			DENSE_RANK(ORDER BY Score DESC) AS score_rank
+	  FROM  Table)
+SELECT  Score, score_rank AS `rank`
+  FROM  CTE 
+ ORDER BY `rank`
+```
 

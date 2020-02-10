@@ -32,8 +32,8 @@ Given the `Employee` table, write a SQL query that finds out employees who earn 
 ```mysql
 # materilized table
 SELECT  E1.Name As Employee
-  FROM  Employee AS E1
-  JOIN  Employee AS E2 ON E1.ManagerId = E2.Id
+  FROM  Employee AS Employee
+  JOIN  Employee AS Manager ON E1.ManagerId = E2.Id
  WHERE  E1.Salary > E2.Salary
 
 # subquery

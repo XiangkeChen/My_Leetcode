@@ -26,7 +26,11 @@ For example, given the above Employee table, the *n*th highest salary where *n* 
 
 **Solution**
 
-和上面176是一道题 这里的话要学习一下怎么写mysql的function
+This question is almost the same as question 176
+
+The reason I still keep this question in the list in to remind you how to write `FUNCTIONS` in mysql.
+
+Keep the following codes in mind.
 
 ```mysql
 CREATE FUNCTION function_name [ (parameter datatype [, parameter datatype]) ]
@@ -45,7 +49,7 @@ END;
 
 ```mysql
 # Sample answer
-# limit后面不能直接写N-1，他只接受数字。所以先定义一个M等于N-1，这种虚拟变量定义之前一半需要先declare。
+# limit后面不能直接写N-1，他只接受数字。所以先定义一个M等于N-1，这种虚拟变量定义之前一般需要先declare。
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
   DECLARE M INT;
@@ -60,17 +64,17 @@ END
 
 
 
-瞎默写语法结构 万一哪一天面试官叫你写一个function怎么办呢是吧
 
-CREATE FUNCTION xxx(year DATETIME) RETURNS INT
 
-BEGIN
 
-DECLARE X INT;
 
-SET X = M -1 ;
+*IDEA*
 
-RETURN (SELECT./....)
+Main parts of a function in mysql are:
 
-END
-
+- CREATE FUNCTION function_name(input type) return return_type
+- BEGIN
+- DECLRARE
+- SET
+- RETURN(SQL statement)
+- END
