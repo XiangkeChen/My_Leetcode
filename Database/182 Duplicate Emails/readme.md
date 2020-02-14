@@ -28,10 +28,6 @@ For example, your query should return the following for the above table:
 
 **Solution**
 
-这道题的确是easy中的easy了 我倒是没有什么特别要说的
-
-我的code是
-
 ```mysql
 SELECT Email FROM(
 SELECT  Email, COUNT(*) AS wc
@@ -40,7 +36,11 @@ SELECT  Email, COUNT(*) AS wc
 HAVING  wc > 1) AS T 
 ```
 
-不过稍微efficient的写法 是可以省去subquery的
+**Actually, You don't need a subquery**
+
+- `Group by` can help you `dedup`
+- You don't need the count(*) column since it's not required.
+- Be mindful of using `having`
 
 ```mysql
 select Email
