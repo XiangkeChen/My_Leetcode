@@ -81,6 +81,11 @@ SELECT  id
   FROM  TABLE
  GROUP BY id
  HAVING max(time) = time -- 限制必须是最近的一天～
+ 
+-- how to use delete
+DELETE FROM TABLE WHERE id IN (duplicate的那个内容)
+
+
 ```
 
 
