@@ -1,3 +1,114 @@
+# Most Important Tips
+
+- In `WHERE` clause, you cannot directly refer to the renamed column you selected, you can use `having` or restate the original column name
+
+  i.e.
+
+  ```mysql
+  # correct
+  SELECT invoice_number,
+  	   invoice_total - payment_total - credit_total AS balance
+    FROM invoices
+   WHERE invoice_total - payment_total - credit_total = 0;
+  
+  # correct
+  SELECT invoice_number,
+  	     invoice_total - payment_total - credit_total AS balance
+     FROM invoices
+   HAVING balance = 0;
+  
+  # wrong
+  SELECT invoice_number,
+  			 invoice_total - payment_total - credit_total AS balance
+  	FROM invoices
+   WHERE balance = 0;
+  ```
+
+- When you are asked to find `earliest`, `latest`,`most recent` records, remember that you can use `min` or `max()` function to get the value 
+
+- When you are conducting `self join`, it`s better to name the table in a more meaningful way
+
+  For example, `employee table` can be names as `employee` and `manager`
+
+- When you are asked to select the top N per group, it's better to use window function. 
+
+- `Pivot table` command could be achieved by `group by` as well.
+
+
+
+**Left Join and If Null**
+
+If there are two Tables A and B. A has all US zipcodes while B only has MN zipcodes
+
+```mysql
+# matched MN codes
+SELECT *
+  FROM A
+  JOIN B USING(zipcode)
+  
+# select all zipcodes in the US expect for MN
+SELECT * 
+  FROM A
+  LEFT JOIN B USING(zipcode)
+ WHERE B.zipcode IS NULL
+
+都是要用zipcode 做join，如果是left jion + is not null, 那就和inner join一样了
+```
+
+
+
+**Duplicates**
+
+Duplicate is another very popular topic that will be tested in interviews. Should you be aware of how to deal with duplicates issues.
+
+```mysql
+SELECT  id
+  FROM  Table
+ GROUP BY zipcode 等各种条件
+ HAVING COUNT(*) > 1
+ 
+-- if it's by time
+-- you can find the latest one and then join back
+SELECT id 
+  FROM Table AS A 
+  JOIN (
+  SELECT id, MAX(time) AS day
+    FROM Table
+   GROUP BY id
+    ) AS B ON A.id = B.id AND A.time = B.day -- 让同一个人的时间相等 得到合适的结果
+    
+SELECT  id
+  FROM  TABLE
+ GROUP BY id
+ HAVING max(time) = time -- 限制必须是最近的一天～
+```
+
+
+
+<u>How To use Python to solve duplicates issues</u>
+
+```python
+# use group by to remove duplicates
+latest_time = df.groupby(id).max()['time']
+# after merging, we only ramain those latest records in our data frame
+df_new = pd.merge(df, latest_time, how = 'inner', on = 'id')
+
+
+# use pandas functions to sovle it
+# duplicates
+df.dup_flag = df[['columnA','columnB']].duplicated() # return true or false 
+# remove duplicates
+df = df[df.dup_flag == True]
+# select duplicate
+df[df.dup_flag == True]
+```
+
+
+
+
+
+
+
 # Short Answers
 
 ## Join Table by Where vs by On
@@ -398,41 +509,3 @@ date_time(date, format)
 - IFULL(column, default return)
 
   If the column is null, it will return the default return, otherwise return the column 
-
-
-
-# Tips
-
-- In `WHERE` clause, you cannot directly refer to the renamed column you selected, you can use `having` or restate the original column name
-
-  i.e.
-
-  ```mysql
-  # correct
-  SELECT invoice_number,
-  	   invoice_total - payment_total - credit_total AS balance
-    FROM invoices
-   WHERE invoice_total - payment_total - credit_total = 0;
-  
-  # correct
-  SELECT invoice_number,
-  	     invoice_total - payment_total - credit_total AS balance
-     FROM invoices
-   HAVING balance = 0;
-  
-  # wrong
-  SELECT invoice_number,
-  			 invoice_total - payment_total - credit_total AS balance
-  	FROM invoices
-   WHERE balance = 0;
-  ```
-
-- When you are asked to find `earliest`, `latest`,`most recent` records, remember that you can use `min` or `max()` function to get the value 
-
-- When you are conducting `self join`, it`s better to name the table in a more meaningful way
-
-  For example, `employee table` can be names as `employee` and `manager`
-
-- When you are asked to select the top N per group, it's better to use window function. 
-
-  
