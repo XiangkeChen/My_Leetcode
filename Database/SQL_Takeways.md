@@ -224,7 +224,9 @@ Be careful with UPDATE, if the WHERE clause is missing, it will update every row
 
 
 
+```mysql
 Update table_name SET column_1 = expression_1 WHERE xxx
+```
 
 Update clause can also used with subquery
 
@@ -430,5 +432,7 @@ date_time(date, format)
 - When you are conducting `self join`, it`s better to name the table in a more meaningful way
 
   For example, `employee table` can be names as `employee` and `manager`
+
+- When you are asked to select the top N per group, it's better to use window function. 
 
   
