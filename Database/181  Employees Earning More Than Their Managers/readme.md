@@ -50,4 +50,4 @@ SELECT  T.name AS Employee
 
 可以看出这一次 materialised table会更快
 
-![image-20200109183320870](181  Employees Earning More Than Their Managers.assets/image-20200109183320870.png)
+![image-20200109183320870](/Users/xiangkechen/Documents/GitHub/My_Leetcode/Database/181  Employees Earning More Than Their Managers/readme.assets/image-20200109183320870.png)
