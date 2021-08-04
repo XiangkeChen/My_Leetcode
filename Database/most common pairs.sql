@@ -35,7 +35,7 @@ values
 
 
 
--- we need to do a self join 
+-- we need to do a self join to get the answer
 -- since my test environment doesn't allow CTE, so i use subquery below.
 -- firstly, we need to remove those duplicates in the initial table so that we don't double count
 
