@@ -55,3 +55,30 @@ from
   cte
  group by 1,2
  order by cnt desc
+
+
+
+--- similar qustion. Find the people who participated in meetings most often
+-- https://stackoverflow.com/questions/66650310/sql-to-find-two-people-who-participated-in-the-most-meetings-together
+-- https://dbfiddle.uk/?rdbms=sqlserver_2019&fiddle=49e1d294be2e324fde95c50c316385cb
+
+-- count unique combinations and sort
+select pe1.name as Person1,
+       pe2.name as Person2,
+       count(1) as SharedMeetings
+from participant pa1
+join participant pa2
+  on  pa2.idMeeting = pa1.idMeeting
+  and pa2.idPerson > pa1.idPerson
+join person pe1
+  on pe1.id = pa1.idPerson
+join person pe2
+  on pe2.id = pa2.idPerson
+group by pe1.name,
+         pe2.name
+order by SharedMeetings desc,
+         pe1.name,
+         pe2.name;
+
+
+
